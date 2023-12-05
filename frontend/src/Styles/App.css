@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+.loader {
+  border: 5px solid #FF6666; /* Light grey */
+  border-top: 5px solid #FCAEAE; /* Blue */
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+  .not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    /* font-family: Arial, sans-serif; */
+  }
+  
+  .error-text {
+    text-align: center;
+    font: bolder;
+    font-size: 3rem;
+    /* font-family: "Poppins sans-serif"; */
+  }
+  
+  .animation-container {
+    margin-top: 20px;
+    width: 200px;
+  }
+  
+  .scene {
+    width: 100px;
+    perspective: 800px;
+  }
+  
+  .skater {
+    width: 100px;
+    transform-style: preserve-3d;
+    animation: skate 3s infinite;
+  }
+  
+  .skateboard {
+    width: 100px;
+    height: 10px;
+    background: #FF597B;
+    position: absolute;
+    transform: translateZ(20px);
+  }
+  
+  .wheel {
+    width: 20px;
+    height: 20px;
+    background: #212121;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .wheel:first-child {
+    left: 10px;
+  }
+  
+  .wheel:last-child {
+    right: 10px;
+  }
+  
+  @keyframes skate {
+    0%, 100% {
+      transform: translateX(-50px) translateZ(20px);
+    }
+    50% {
+      transform: translateX(50px) translateZ(20px);
+    }
+  }
+ 
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
+  ::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+  }
