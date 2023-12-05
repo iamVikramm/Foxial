@@ -15,7 +15,7 @@ const Friends = () => {
     const items = showFriends ? userFriends : userFriendRequests;
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    
     const handleAcceptRequest = (e)=>{
         const senderId = e.currentTarget.id
         try{

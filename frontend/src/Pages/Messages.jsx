@@ -17,7 +17,7 @@ const Messages = () => {
   const [messages,setMessages] = useState([])
   const {fetchChatsData} = getChats()
   const {fetchUserData} = getUser()
-  const ENDPOINT = 'http://localhost:8080'; // Replace with your actual endpoint
+  const ENDPOINT = 'https://foxial.onrender.com'; // Replace with your actual endpoint
   const [socket, setSocket] = useState(null);
   const [socketConnected, setSocketConnected] = useState(false);
   const messageContainerRef = useRef(null);

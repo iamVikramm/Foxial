@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { imgBaseUrl } from '../Constants';
 
 const getAllData = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -8,7 +9,7 @@ const getAllData = () => {
   const [pendingFriendRequest, setPendingFriendRequest] = useState([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState('');
-  const baseUrl = "http://localhost:8080/foxial/api"
+  const baseUrl = `${imgBaseUrl}/foxial/api`
 
   const getTokenFromCookies = () => {
     const cookies = document.cookie.split(';');

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTimes,faEye,faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { imgBaseUrl } from '../Constants';
 
 const Login = () => {
   const Navigate = useNavigate()
@@ -29,7 +30,7 @@ const Login = () => {
       "email":email,
       "password":password
     }
-    axios.post("http://localhost:8080/foxial/auth/user/login",user)
+    axios.post(`${imgBaseUrl}/foxial/auth/user/login`,user)
     .then((res)=>{console.log(res);
       if(res.status === 200){
         const token = res.data?.authToken?.token;

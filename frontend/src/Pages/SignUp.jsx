@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Link,useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTimes,faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { imgBaseUrl } from '../Constants';
 
 const SignUp = () => {
   const Navigate = useNavigate()
@@ -55,7 +56,7 @@ const SignUp = () => {
   }
 
   const handleGoogleSignUp = ()=>{
-      axios.post("http://localhost:8080/auth/signup")
+      axios.post(`${imgBaseUrl}/auth/signup`)
       .then((res)=>{console.log(res);
         if(res.status === 200){
           const token = res.data?.authToken?.token;
@@ -76,7 +77,7 @@ const SignUp = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    axios.post('http://localhost:8080/foxial/auth/signup',formData)
+    axios.post(`${imgBaseUrl}/foxial/auth/signup`,formData)
     .then((response) => {
       console.log('User signed up:', response);
       // Reset the input fields on successful signup

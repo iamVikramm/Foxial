@@ -10,7 +10,7 @@ import { getChats } from '../Hooks';
 import { addMessages, addSingleMessage } from '../Store/Slices';
 import store from '../Store';
 
-const ENDPOINT = 'http://localhost:8080';
+const ENDPOINT = 'https://foxial.onrender.com';
 
 const MessagingPage = () => {
   const { chatId } = useParams();

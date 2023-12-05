@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import store from "../Store/index"
 import Navbar from '../Components/Navbar';
 import LeftSideBar from '../Components/LeftSideBar';
-import { imgBaseUrl } from '../Constants';
+import { baseUrl, imgBaseUrl } from '../Constants';
 import Commercial from '../Components/Commercial';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -33,7 +33,7 @@ function Profile() {
     formData.append('avatar',file)
     axios({
       method: 'POST',
-      url: 'http://localhost:8080/foxial/api/user/update',
+      url: `${baseUrl}/user/update`,
       data: formData, // Use 'data' instead of 'body' for form data
       headers: {
         'Content-Type': 'multipart/form-data', // Correct content type for form data
