@@ -31,7 +31,7 @@ const Login = () => {
       "password":password
     }
     axios.post(`${imgBaseUrl}/foxial/auth/user/login`,user)
-    .then((res)=>{console.log(res);
+    .then((res)=>{
       if(res.status === 200){
         const token = res.data?.authToken?.token;
         setCookie('foxialAuthToken', token, 1);

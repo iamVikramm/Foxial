@@ -26,7 +26,6 @@ const chatsSlice = createSlice({
         },
         addMessages(state, action) {
             const { chatId, messages } = action.payload;
-            console.log(messages)
             return state.map(chat => {
               if (chat.chatId === chatId) {
                 return {
@@ -68,7 +67,6 @@ const chatsSlice = createSlice({
                 messages: [message],
                 latestMessage: message,
               };
-              console.log(newChat)
               updatedState.push(newChat);
             }
           

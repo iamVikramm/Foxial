@@ -35,7 +35,7 @@ const Home = () => {
         <section className='md:w-[21%]'>
           <LeftSideBar  />
         </section>
-        <section className='w-full md:mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] justify-center items-center'>
+        <section className='w-full md:mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] items-center'>
           {
             loading ? <SkeletonCards cards={10} /> : <Posts posts={posts} />
           }

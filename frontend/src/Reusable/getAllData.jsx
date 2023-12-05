@@ -27,11 +27,10 @@ const getAllData = () => {
       });
 
       if (response.status === 200) {
-        console.log(response)
+
         setFriendships(response.data.friendships);
-        console.log(friendships)
         setPendingFriendRequest(response.data.pendingrequests);
-        console.log(pendingFriendRequest)
+
       }
     } catch (error) {
       console.error("Error in getting user details:", error);
@@ -65,7 +64,6 @@ const getAllData = () => {
       });
 
       if (response.status === 200) {
-        console.log(response.data.posts)
         setPosts(response.data.posts);
       }
     } catch (error) {

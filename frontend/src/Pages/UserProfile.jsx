@@ -67,7 +67,6 @@ function UserProfile() {
 
   const handleShowPopUp = (post)=>{
     if(post){
-      console.log(post)
       setpopUpPost(post)
       setShowPopup(true)
     }
@@ -115,7 +114,6 @@ function UserProfile() {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log(res)
               dispatch(unFriend({unFriend : senderId}))
               toast.success('Friend added');
             }

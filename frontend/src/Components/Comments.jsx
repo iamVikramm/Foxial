@@ -63,7 +63,6 @@ const Comments = (props) => {
           });
     
           if (res.status === 200) {
-            console.log(res)
             const likeExist = res.data.data.deleted;
             if(likeExist){
               dispatch(addCommentLike({postId:post,userId:user._id,commentId:comment._id}))

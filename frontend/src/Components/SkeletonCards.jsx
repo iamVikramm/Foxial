@@ -5,7 +5,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const SkeletonCards = ({cards}) => {
   const allCards = Array(cards).fill(0)
-  console.log(allCards)
   return (
     <div className='w-full'>
       {

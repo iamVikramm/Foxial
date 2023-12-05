@@ -30,7 +30,7 @@ const Friends = () => {
             })
               .then((res) => {
                 if (res.status === 200) {
-                  console.log(res)
+                
                   dispatch(addSingleFriend({newFriend : res.data.newFriend}))
                   toast.success('Friend added');
                 }

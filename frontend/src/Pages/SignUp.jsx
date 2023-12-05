@@ -57,7 +57,7 @@ const SignUp = () => {
 
   const handleGoogleSignUp = ()=>{
       axios.post(`${imgBaseUrl}/auth/signup`)
-      .then((res)=>{console.log(res);
+      .then((res)=>{
         if(res.status === 200){
           const token = res.data?.authToken?.token;
           setCookie('foxialAuthToken', token, 1);
@@ -79,7 +79,6 @@ const SignUp = () => {
     e.preventDefault();
     axios.post(`${imgBaseUrl}/foxial/auth/signup`,formData)
     .then((response) => {
-      console.log('User signed up:', response);
       // Reset the input fields on successful signup
       if(response.status === 200){
         setFormData({

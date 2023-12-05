@@ -191,7 +191,6 @@ const PostDetails = ({ post }) => {
           }, 
         })
         .then(res=>{
-          console.log(res)
           dispatch(removeFromSavedPosts({postId:post._id}))
         })
         .catch(error=>{
@@ -212,7 +211,6 @@ const PostDetails = ({ post }) => {
           }, 
         })
         .then(res=>{
-          console.log(res)
           dispatch(addToSavedPosts({postId:post._id}))
         })
         .catch(error=>{

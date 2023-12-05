@@ -41,8 +41,7 @@ function Profile() {
       },
     })
       .then(response => {
-        // Handle the response
-        console.log(response.data);
+
       })
       .catch(error => {
         // Handle errors

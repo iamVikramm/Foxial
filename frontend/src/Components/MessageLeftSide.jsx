@@ -107,7 +107,6 @@ const MessageLeftSide = (props) => {
           Authorization: `Bearer ${store.getState().authToken.authToken}`,
         },
       })
-      console.log(res)
       dispatch(addMessages({chatId:chatDetails.chatId,messages:res.data}))
       setMessages(res.data)
       setMessagingUser(chatDetails)

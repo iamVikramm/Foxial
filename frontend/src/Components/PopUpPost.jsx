@@ -13,7 +13,6 @@ import { toast } from 'react-toastify';
 const PopUpPost = (props) => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const post = props.post
-    console.log(post)
     const setShowPopup = props.setShowPopup;
     const showPopup = props.showPopup;
     const[userLikedPost,setUserLikedPost] = useState(post?.likes.find(l=>l.user._id === user._id));
@@ -27,12 +26,6 @@ const PopUpPost = (props) => {
       const handlePopstate = (event) => {
         // Prevent the default behavior
         event.preventDefault();
-  
-        // Add your custom logic here
-        console.log('Popstate event prevented');
-  
-        // Log the event object for further analysis
-        console.log(event);
       };
   
       // Add the event listener when the component mounts

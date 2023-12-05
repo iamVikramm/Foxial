@@ -39,7 +39,6 @@ const EditProfile = () => {
             .then(res=>{
               setChecking(false)
               setIsAvailable(true)
-              console.log(res)
             })
             .catch(err=>{
               setChecking(false)
@@ -101,8 +100,6 @@ const EditProfile = () => {
             },
           })
             .then(response => {
-              // Handle the response
-              console.log(response.data);
             })
             .catch(error => {
               // Handle errors

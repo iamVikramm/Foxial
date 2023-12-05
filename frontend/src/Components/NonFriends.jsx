@@ -32,7 +32,6 @@ const NonFriends = () => {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log(res)
               dispatch(removeNonfriends(reqReceiverID))
               toast.success('Friend request sent');
             }

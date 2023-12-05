@@ -13,7 +13,6 @@ const authTokenSlice = createSlice({
             return state;
             
         },
-        removeToken(state,action){ }
     },
 })
 
