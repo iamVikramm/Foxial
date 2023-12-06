@@ -74,10 +74,10 @@ const Login = () => {
         <>{errorMsg ?<small className='text-red-500 bg-black p-3 font-bold'><label onClick={()=>{setErrorExist(false),setErrorMsg("")}} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold' icon={faTimes} /></label>{errorMsg}</small>:<></>}</>
             <form className=' rounded-lg p-1 xl:p-5 pl-5 pr-5 h-full w-full flex flex-col justify-center items-center gap-1' onSubmit={handleSubmit}>
               <div className='w-full p-2 flex flex-1 flex-col justify-center gap-2 '>
-                <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className={`w-full border outline-none  p-2 rounded-md text-[14px] ${errorExist ? "border-red-500":"border-gray-200"}`} type='Email' placeholder='Enter Email'></input>
+                <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className={`w-full border outline-none  p-2 rounded-md text-[14px] md:text-[16px] ${errorExist ? "border-red-500":"border-gray-200"}`} type='Email' placeholder='Enter Email'></input>
               </div>
               <div className={`w-[95%] border rounded-md flex flex-1 items-center gap-2 ${errorExist ? "border-red-500":"border-gray-200"}`}>
-                  <input value={password} onChange={(e)=>{setPassword(e.target.value)}} className={`w-full outline-none p-2 rounded-md text-[14px]`} type={viewPassword ? 'text' : 'password'} placeholder='Enter Password'></input>
+                  <input value={password} onChange={(e)=>{setPassword(e.target.value)}} className={`w-full outline-none p-2 rounded-md text-[14px] md:text-[16px]`} type={viewPassword ? 'text' : 'password'} placeholder='Enter Password'></input>
                   {
                     viewPassword ? 
                     <label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold text-[12px]' icon={faEyeSlash} /></label>

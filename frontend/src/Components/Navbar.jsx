@@ -70,11 +70,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='fixed top-0 w-full h-[7%] md:h-16 border-b border-1 border-solid border-slate-200 md:pr-10 p-2 pr-3 flex z-10 justify-between bg-white'>
+    <nav className='fixed top-0 w-full max-h-[10%] md:h-16 border-b border-1 border-solid border-slate-200 md:pr-10 p-2 pr-3 flex z-10 justify-between bg-white'>
       <div className='h-full'>
         <div className='h-full ml-2 lg:ml-7 flex flex-1 justify-center items-center gap-1'>
           <img onClick={handleLogoClick} className='hidden lg:block lg:h-14 cursor-pointer' src='../../../assets/images/foxial_name_logo.png' />
-          <img onClick={handleLogoClick} className='block lg:hidden h-[80%] lg:h-14 cursor-pointer' src='../../../assets/images/foxial-title-logo.png' />
+          <img onClick={handleLogoClick} className='block lg:hidden h-8 lg:h-14 cursor-pointer' src='../../../assets/images/foxial-title-logo.png' />
         </div>
       </div>
       <ul className='flex flex-1 items-center justify-end gap-3 '>
@@ -102,7 +102,7 @@ const Navbar = () => {
         <li className='block lg:hidden'>
           {
           showLeftSidebar ? <FontAwesomeIcon onClick={()=>setShowLeftSideBar(false)} className='text-red-500 text-[22px]' icon={faX} /> :
-          <FontAwesomeIcon onClick={()=>setShowLeftSideBar(true)} className='text-[22px]' icon={faBars} />
+          <FontAwesomeIcon onClick={()=>setShowLeftSideBar(true)} className='text-[20px]' icon={faBars} />
           }
         </li>
         {

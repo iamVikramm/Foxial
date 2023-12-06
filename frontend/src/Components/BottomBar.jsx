@@ -12,8 +12,8 @@ const BottomBar = () => {
     const navigate = useNavigate()
 
   return (
-    <div className='fixed block lg:hidden w-full bg-white h-[7%] md:h-[9%] border-t bottom-0 shadow-xl'>
-        <div className='w-full p-2 flex justify-around items-center'>
+    <div className='fixed block lg:hidden w-full bg-white border-t bottom-0 shadow-xl'>
+        <div className='w-full p-1 flex justify-around items-center'>
             {
                 bottomBarLinks.map(item=>{
                     const isActive = pathname.includes(item.route);

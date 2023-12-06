@@ -160,9 +160,9 @@ function UserProfile() {
           <LeftSideBar  />
         </section>
         <section className='w-full mt-24 md:mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] items-center'>
-          <div className='w-full lg:w-[85%] flex justify-evenly  items-center'>
-            <div className='flex justify-end items-center'>
-              <img className='h-[80px] w-[80px] md:h-[150px] md:w-[150px] rounded-full object-cover' src={`${imgBaseUrl}${user?.avatar}`} />
+          <div className='w-full lg:w-[85%] flex justify-around lg:justify-evenly  items-center'>
+            <div className='flex items-center'>
+              <img className='h-[80px] w-[80px] md:h-[150px] md:w-[150px] lg:h-[200px] lg:w-[200px] rounded-full object-cover' src={`${imgBaseUrl}${user?.avatar}`} />
             </div>
             <div className='flex flex-col p-1 items-center justify-center'>
               <div className='flex flex-1 p-2 items-center'>

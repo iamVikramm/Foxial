@@ -20,7 +20,7 @@ const LandingPage = () => {
         <section className='bg-white h-[100vh]'>
             <nav className='w-full h-[10vh] text-black md:h-16 p-4 pr-5 md:pr-10 flex  justify-around items-center'>
                 <div className='h-full'>
-                    <div className='h-full ml-3 md:ml-8 flex flex-1 justify-center items-center gap-1'>
+                    <div className='h-full md:ml-8 flex flex-1 justify-center items-center gap-1'>
                         <img  className='h-14 hidden md:block cursor-pointer' src='../../../assets/images/foxial_name_logo.png' />
                         <img  className='block sm:hidden h-14 cursor-pointer' src='../../../assets/images/foxial-logo.png' />
                     </div>
