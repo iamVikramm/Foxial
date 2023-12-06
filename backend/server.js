@@ -39,12 +39,12 @@ const Server = server.listen(PORT,function(){
     console.log("Connected to the server")
 })
 
-const io = require('socket.io')(Server,{
-    pingTimeout : 60000,
-    cors:{
-        origin:"http://localhost:5173"
+const io = require('socket.io')(Server, {
+    pingTimeout: 60000, // Set the ping timeout to 60 seconds
+    cors: {
+        origin: "*" // Allow all origins
     }
-})
+});
 
 io.on("connection",(socket)=>{
 
