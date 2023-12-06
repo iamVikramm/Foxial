@@ -60,9 +60,9 @@ const Search = () => {
         <LeftSideBar  />
       </section>
       <section className='w-full mt-24 md:mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] items-center'>
-        <div className='m-2 w-[65%] flex justify-center items-center border-2 border-solid border-black'>
+        <div className='m-2 w-[90%] lg:w-[65%] flex justify-center items-center border-2 border-solid border-black'>
           <input ref={inputRef} onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} className='w-[90%] p-2 border-none outline-none' placeholder='Search...' type='text'/>
-          {loading ?  <div className='w-[5%] h-[25px] border-4 border-solid border-t-4 border-t-[#FF6666] animate-spin rounded-full'></div>:<></>}
+          {loading ?  <div className=' h-[20px] w-[6.8%]    md:w-[5%] md:h-[25px] border-4 border-solid border-t-4 border-t-[#FF6666] animate-spin rounded-full'></div>:<></>}
         </div>
         {
         searchResults.length > 0 ? 

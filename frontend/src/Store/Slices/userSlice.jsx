@@ -16,8 +16,8 @@ const userSlice = createSlice({
     reducers:{
         addUser(state,action){
             const { users } = action?.payload || {};
-            const { username, email, _id,avatar,bio,isPrivate} = users || {};
-            state = { ...state, username, email, _id,avatar,bio,isPrivate};
+            const { username, email, _id,avatar,bio,isPrivate,saved} = users || {};
+            state = { ...state, username, email, _id,avatar,bio,isPrivate,saved};
             return state;
         },
         addSavedPosts(state,action){

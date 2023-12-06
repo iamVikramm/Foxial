@@ -52,10 +52,10 @@ const Friends = () => {
       <section className='w-full mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%]'>
         <div className='mt-3 h-[8%] w-full fixed p-4 md:w-[70%] lg:w-[56%] flex flex-1 justify-center items-center'>
             <div onClick={()=>setShowFriends(true)} className='w-[50%] flex justify-center items-center text-center cursor-pointer'>
-                <p className={`${showFriends ? "bg-[#FF6666] text-white" : ""} w-[70%] p-2 font-semibold rounded-lg text-[20px]`}>Friends</p>
+                <p className={`${showFriends ? "bg-[#FF6666] text-white" : ""} w-[70%] p-2 font-semibold rounded-lg text-[16px] md:text-[20px]`}>Friends</p>
             </div>
             <div onClick={()=>setShowFriends(false)}  className='w-[50%] flex justify-center items-center text-center cursor-pointer'>
-                <p className={`${!showFriends ? "bg-[#FF6666] text-white" : ""} w-[70%] p-2 font-semibold rounded-lg text-[20px]`}>Friend Requests</p>
+                <p className={`${!showFriends ? "bg-[#FF6666] text-white" : ""} w-[70%] p-2 font-semibold rounded-lg text-[16px] md:text-[20px]`}>Friend Requests</p>
             </div>
         </div>
         <div className='w-full mt-[20%] lg:mt-[10%] p-4 flex flex-col justify-center items-center'>
@@ -79,7 +79,7 @@ const Friends = () => {
                     </div>
                 )}) 
                 :
-                showFriends ? (<div className='text-[24px]  mt-[10%] text-bold'>No Friends</div>) : (<div className='text-[24px]  mt-[10%] text-bold'>No Friend Requests</div>)
+                showFriends ? (<div className='md:text-[24px] text-[18px]  mt-[10%] text-bold'>No Friends</div>) : (<div className='text-[24px]  mt-[10%] text-bold'>No Friend Requests</div>)
             
             }
         </div>

@@ -70,27 +70,24 @@ const Login = () => {
           </div>
         </div>
         
-        <div className='w-[70%] p-3'>
+        <div className='w-full md:w-[70%] p-3'>
         <>{errorMsg ?<small className='text-red-500 bg-black p-3 font-bold'><label onClick={()=>{setErrorExist(false),setErrorMsg("")}} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold' icon={faTimes} /></label>{errorMsg}</small>:<></>}</>
             <form className=' rounded-lg p-1 xl:p-5 pl-5 pr-5 h-full w-full flex flex-col justify-center items-center gap-1' onSubmit={handleSubmit}>
-              <div className='w-[90%] p-2 flex flex-1 flex-col justify-center gap-2 '>
-                <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className={`w-full border-b-2 outline-none  p-2 rounded-md ${errorExist ? "border-red-500":"border-gray-200"}`} type='Email' placeholder='Enter Email'></input>
+              <div className='w-full p-2 flex flex-1 flex-col justify-center gap-2 '>
+                <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className={`w-full border outline-none  p-2 rounded-md text-[14px] ${errorExist ? "border-red-500":"border-gray-200"}`} type='Email' placeholder='Enter Email'></input>
               </div>
-              <div className={`w-[90%] p-2 border-b-2 flex flex-1 flex-col justify-center items-start gap-2 ${errorExist ? "border-red-500":"border-gray-200"}`}>
-                <div className='flex flex-1 bg-white rounded-md w-[100%]'> 
-                  <input value={password} onChange={(e)=>{setPassword(e.target.value)}} className={`w-full outline-none p-2 rounded-md `} type={viewPassword ? 'text' : 'password'} placeholder='Enter Password'></input>
+              <div className={`w-[95%] border rounded-md flex flex-1 items-center gap-2 ${errorExist ? "border-red-500":"border-gray-200"}`}>
+                  <input value={password} onChange={(e)=>{setPassword(e.target.value)}} className={`w-full outline-none p-2 rounded-md text-[14px]`} type={viewPassword ? 'text' : 'password'} placeholder='Enter Password'></input>
                   {
                     viewPassword ? 
-                    <label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold' icon={faEyeSlash} /></label>
-                     :<label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold' icon={faEye} /></label>
+                    <label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold text-[12px]' icon={faEyeSlash} /></label>
+                     :<label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold text-[12px]' icon={faEye} /></label>
                   }
-                </div>
-              
               </div>
             
-              <button className='bg-black mt-6 text-white p-2 rounded-md w-[80%]' type='Submit'>Submit</button>
+              <button className='bg-black mt-6 text-white p-2 rounded-md w-[60%] text-[14px] md:text-[16px]' type='Submit'>Submit</button>
               <div className='w-[150%] text-center mt-2'>
-                <p className='p-2'>Don't have an Account? &nbsp;<Link to={"/auth/signup"}><button className='mt-3 p-1 rounded-lg bg-[#FF6666] text-white w-[20%] '>Sign Up</button></Link></p>
+                <p className='p-2 text-[14px] md:text-[16px]'>Don't have an Account? &nbsp;<Link to={"/auth/signup"}><button className='mt-3 p-1 rounded-lg bg-[#FF6666] text-white w-[20%] text-[14px] md:text-[16px]'>Sign Up</button></Link></p>
               </div>
             </form>
         </div>

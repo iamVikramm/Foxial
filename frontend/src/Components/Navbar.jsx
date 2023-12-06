@@ -70,17 +70,17 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='fixed top-0  w-full md:h-16 border-b border-1 border-solid border-slate-200 md:pr-10 p-2 pr-3 flex z-10 justify-between bg-white'>
+    <nav className='fixed top-0 w-full h-[7%] md:h-16 border-b border-1 border-solid border-slate-200 md:pr-10 p-2 pr-3 flex z-10 justify-between bg-white'>
       <div className='h-full'>
-        <div className='h-full lg:ml-7 flex flex-1 justify-center items-center gap-1'>
-          <img onClick={handleLogoClick} className='hidden md:block h-14 cursor-pointer' src='../../../assets/images/foxial_name_logo.png' />
-          <img onClick={handleLogoClick} className='block sm:hidden h-14 cursor-pointer' src='../../../assets/images/foxial-logo.png' />
+        <div className='h-full ml-2 lg:ml-7 flex flex-1 justify-center items-center gap-1'>
+          <img onClick={handleLogoClick} className='hidden lg:block lg:h-14 cursor-pointer' src='../../../assets/images/foxial_name_logo.png' />
+          <img onClick={handleLogoClick} className='block lg:hidden h-[80%] lg:h-14 cursor-pointer' src='../../../assets/images/foxial-title-logo.png' />
         </div>
       </div>
       <ul className='flex flex-1 items-center justify-end gap-3 '>
         <li>
           <div className='flex flex-1 mr-1 md:0 justify-center items-center gap-1 cursor-pointer'>
-            <img ref={dropdownRef} onClick={handleToggleDropdown} className='h-12 w-12 rounded-full object-cover cursor-pointer' src={`${imgBaseUrl}${user.avatar}`} />
+            <img ref={dropdownRef} onClick={handleToggleDropdown} className='h-10 w-10 md:h-12 md:w-12 rounded-full object-cover cursor-pointer' src={`${imgBaseUrl}${user.avatar}`} />
           </div>
           {showDropDown && 
           <div   className="absolute right-0 z-50 mt-2 w-48 md:w-52 origin-top-right divide-y divide-gray-100 rounded-md bg-white text-gray-700 shadow-lg mr-4 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
@@ -107,7 +107,7 @@ const Navbar = () => {
         </li>
         {
           showLeftSidebar &&
-          <section className='fixed right-0 w-[65%] top-20  p-4 border-b-2 rounded-lg shadow-xl lg:w-[19%] flex-col bg-white'>
+          <section className='fixed right-0 w-[72%] top-20  p-4 border-b-2 rounded-lg shadow-xl lg:w-[19%] flex-col bg-white'>
           {
             sidebarLinks.map((item) => {
               const isActive = pathname.includes(item.route);

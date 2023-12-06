@@ -52,8 +52,8 @@ const Settings = () => {
         <section className='w-full mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] items-center p-2'>
           <h1 className='mr-auto ml-5 text-[24px] font-bold text-[#FF6666]'>Settings</h1>
           <section className='w-[80%] mt-4'>
-            <div className='p-2 font-semibold text-gray-700'>
-              <div onClick={()=>setShowPrivacyPopup(prev=>!prev)} className='w-full flex flex-1 items-center cursor-pointer rounded-sm bg-slate-100 hover:bg-[#FF6666] hover:text-white p-3'>
+            <div className='p-2 font-semibold text-gray-700 text-[14px] md:text-[16px]'>
+              <div onClick={()=>setShowPrivacyPopup(prev=>!prev)} className='w-full flex flex-1 items-center cursor-pointer rounded-sm bg-slate-100 hover:bg-[#FF6666] hover:text-white p-3 '>
                 
                 <p><FontAwesomeIcon className='mr-5' icon={faLock} /> Account Privacy</p>
                 {showPrivacyPopup ? <FontAwesomeIcon className='ml-auto hover:scale-105' icon={faCaretUp} /> : <FontAwesomeIcon className='ml-auto hover:scale-105' icon={faCaretDown} />}

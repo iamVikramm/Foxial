@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useMemo } from 'react';
 import axios from 'axios';
 import store from '../Store';
 import { toast } from 'react-toastify';
@@ -30,8 +30,8 @@ const PostDetails = ({ post }) => {
   const [likesLength,setLikesLength] = useState(post.likes?.length)
   const [showLikedUsers,setShowLikedUsers] = useState(false)
   const [ likedUsers,setLikedUsers] = useState([]);
-  const savedPosts = useSelector(state=>state.users.saved);
-  const postIsSaved = savedPosts.some(savedPost => savedPost._id === post._id);
+  const savedPosts = useSelector(state => state.users.saved);
+  const [postIsSaved, setPostIsSaved] = useState(savedPosts.some(savedPost => savedPost === post._id));
   const postUser = post.user;
   const friends = useSelector(state=>state.friendships.friends)
   const sentRequests = useSelector(state=>state.friendships.sentRequests)
@@ -45,6 +45,9 @@ const PostDetails = ({ post }) => {
 
   const commentsLength = comments?.length
 
+  useEffect(() => {
+    setPostIsSaved(savedPosts.some(savedPost => savedPost === post._id));
+  }, [savedPosts, post._id]);
 
   useEffect(() => {
     // Check if the user has liked the post when the component mounts
@@ -212,6 +215,7 @@ const PostDetails = ({ post }) => {
         })
         .then(res=>{
           dispatch(addToSavedPosts({postId:post._id}))
+          toast.success("Post saved")
         })
         .catch(error=>{
           console.log(error)
@@ -224,7 +228,7 @@ const PostDetails = ({ post }) => {
   const postedUserId = postUser._id;
   return (
     <React.Fragment>
-    <div key={post._id} className='mt-2 p-3 mb-2 border border-solid  lg:w-[100%] rounded-md'>
+    <div key={post._id} className='mt-2 p-3 pb-1 border border-solid lg:w-[100%] rounded-md'>
       {
         showLikedUsers && 
       <div className="fixed flex flex-col top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2 p-4 w-[80%] lg:w-[25%] h-[50vh] bg-black">
@@ -239,7 +243,7 @@ const PostDetails = ({ post }) => {
               const user = like.user
               return(
                 <div key={user._id} className='w-full flex items-center gap-3 p-1 mt-1 border border-slate-700 rounded-md'>
-                  <img className='h-12 w-12 rounded-full object-cover' src={`${imgBaseUrl}${user.avatar}`} />
+                  <img className='h-[22px] w-[22px] md:h-12 md:w-12 rounded-full object-cover' src={`${imgBaseUrl}${user.avatar}`} />
                   <p onClick={()=>navigate(`/user/userprofile/${user._id}`)} className='font-semibold hover:underline cursor-pointer'>{user.username}</p>
                 </div>
               )
@@ -252,13 +256,13 @@ const PostDetails = ({ post }) => {
       }
     <div className='w-full flex flex-1 justify-start items-center gap-2 pb-2 border-b border-solid'>
     {postUser?.avatar && (
-      <img className='h-12 w-12 rounded-full object-cover bg-center' src={`${imgBaseUrl}${postUser.avatar}`} alt={postUser.username} />
+      <img className='h-9 w-9 md:h-12 md:w-12 rounded-full object-cover bg-center' src={`${imgBaseUrl}${postUser.avatar}`} alt={postUser.username} />
     )}
       <div className='flex flex-1 flex-col justify-center  w-[10%]'>
         <div className='flex justify-start items-start gap-3'>
           <div className='flex flex-col justify-center items-start'>
-            <p onClick={()=>navigate(`/user/userprofile/${postUser._id}`)} className='font-semibold text-[17px] cursor-pointer hover:underline'>{postUser.username }</p>
-            <small className=' text-[10px] font-thin'>{formattedTimeOrDate}</small>
+            <p onClick={()=>navigate(`/user/userprofile/${postUser._id}`)} className='font-semibold md:text-[17px] cursor-pointer hover:underline text-[14px]'>{postUser.username }</p>
+            <small className='text-[9px] md:text-[10px] font-thin'>{formattedTimeOrDate}</small>
           </div>
           {
           postUser._id !== tUser._id 
@@ -289,7 +293,7 @@ const PostDetails = ({ post }) => {
         </div>
       </div>
           {post?.content &&(            
-            <div className={`${post?.image ?"max-h-[100px] md:max-h-[150px]  mt-4 pb-2" :"max-h-[500px]"} mt-1 break-words w-full p-1 overflow-y-auto`}>
+            <div className={`${post?.image ?"max-h-[100px] md:max-h-[150px]" :"max-h-[500px]"} mt-1 break-words w-full p-1 overflow-y-auto`}>
               <p className='h-full text-[14.5px]'>{post.content}</p>
             </div>)}
             {post?.image && (      
@@ -297,14 +301,14 @@ const PostDetails = ({ post }) => {
               <img className='h-[350px] md:h-[450px] object-scale-down w-full' src={`${imgBaseUrl}${post.image}`} alt='Post Image' />
             </div>)}
             {/* Like,Comments and Share Buttons */}
-            <div className='m-1 p-1 lg:w-full flex flex-1 gap-7 items-center'>
+            <div className=' mt-2 p-1 lg:w-full flex flex-1 gap-7 items-center'>
               {/* Like Button */}
               <div className='flex flex-col items-center'>
                 <div className='flex justify-center items-center '>
                   <div onClick={handleLike} className='cursor-pointer'>{userLikedPost ?  <FontAwesomeIcon className='text-red-500' icon={faHeartSolid} /> : <FontAwesomeIcon  icon={faHeart} />} </div>
                   <small className='ml-1'>{likesLength}</small>
                 </div>
-                <small onClick={getLikedUsers} className='hover:underline cursor-pointer'>Likes</small>
+                <small onClick={getLikedUsers} className='hover:underline cursor-pointer text-[11px] md:text-[13px]'>Likes</small>
               </div>
               {/* Comment Button */}
               <div className='flex flex-col items-center'>
@@ -312,7 +316,7 @@ const PostDetails = ({ post }) => {
                   <div onClick={()=>setShowDropDown(!showDropDown)} className='cursor-pointer'><FontAwesomeIcon icon={faComment} /></div>
                   <small className='ml-1'>{commentsLength}</small>
                 </div>
-                <small>Comments</small>
+                <small className='text-[11px] md:text-[13px]'>Comments</small>
               </div>
               {/* Saved Button */}
               <div className='ml-auto mr-4 flex justify-center items-center'>
@@ -325,10 +329,10 @@ const PostDetails = ({ post }) => {
               </div>
             </div>
             {showDropDown && 
-              <div className='p-2 w-full overflow-y-scroll'>
+              <div className='w-full overflow-y-scroll'>
                 <form onSubmit={handleCommentSubmit}>
-                  <input className='w-[80%] p-2 outline-none border border-1 border-slate-200' onChange={(e)=>{setCommentContent(e.target.value)}} value={commentContent} placeholder='Add a comment..' type='text' />
-                  <input className='w-[10%] p-1 m-2 cursor-pointer bg-[#FF6666] text-white rounded-md' type='submit' value={"Post"}/>
+                  <input className=' w-full lg:w-[80%] p-2 outline-none border border-1 border-slate-200 text-[14px] lg:text-[16px]' onChange={(e)=>{setCommentContent(e.target.value)}} value={commentContent} placeholder='Add a comment..' type='text' />
+                  <input className='w-[20%] lg:w-[10%] p-1 m-2 cursor-pointer bg-[#FF6666] text-white rounded-md text-[14px] lg:text-[16px]' type='submit' value={"Post"}/>
                 </form>
                 <h2 className='m-1 font-bold'>Comments</h2>
                 <div className='w-full max-h-[350px] overflow-y-scroll overflow-x-hidden'>
@@ -371,7 +375,7 @@ const Posts = ({posts}) => {
   }
 
   return (
-    <section className="w-full p-1 md:p-3 lg:p-1  md:[100%] lg:w-[80%] mt-20 md:mt-2 overflow-hidden mb-10">
+    <section className="w-full p-1 md:p-3 lg:p-1  md:[100%] lg:w-[80%] mt-20  overflow-hidden mb-14">
       {posts.map((post) => (
         <PostDetails key={post._id} post={post} />
       ))}

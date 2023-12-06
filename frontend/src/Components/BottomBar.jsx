@@ -12,7 +12,7 @@ const BottomBar = () => {
     const navigate = useNavigate()
 
   return (
-    <div className='fixed block lg:hidden w-full bg-white bottom-0 shadow-xl'>
+    <div className='fixed block lg:hidden w-full bg-white h-[7%] md:h-[9%] border-t bottom-0 shadow-xl'>
         <div className='w-full p-2 flex justify-around items-center'>
             {
                 bottomBarLinks.map(item=>{
@@ -20,14 +20,14 @@ const BottomBar = () => {
                     if(item.label === "Profile") {
                         return(
                             <div key={item.label} onClick={()=>navigate(item.route)} className={`${isActive ? "text-[#FF6666]" : "text-gray-700"} flex flex-col p-1  justify-evenly items-center gap-1`}>
-                                <img className='h-10 w-10 rounded-full object-cover' src={`${imgBaseUrl}${user.avatar}`} />
+                                <img className='h-8 w-8 rounded-full object-cover' src={`${imgBaseUrl}${user.avatar}`} />
                             </div>
                             ) 
                     } 
                 else{
                     return(
                         <div key={item.label} onClick={()=>navigate(item.route)} className={`${isActive ? "text-[#FF6666]" : "text-gray-700"} flex flex-col p-1  justify-evenly items-center gap-1`}>
-                            <FontAwesomeIcon className='h-8 w-8 text-[12px]' icon={data[item.icon]} />
+                            <FontAwesomeIcon className='h-6' icon={data[item.icon]} />
                         </div>
                         )
                 }

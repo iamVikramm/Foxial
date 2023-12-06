@@ -131,7 +131,7 @@ const MessageLeftSide = (props) => {
               <div className='w-[90%] mt-1 mb-1 ml-4  p-1 flex justify-center items-center rounded-lg border border-solid border-gray-300 '>
               <input className='w-[90%] p-2  rounded-md outline-none border-none' onChange={(e)=>setSearchName(e.target.value)} value={searchName} placeholder='Search user...' type='text' />
               {
-                searchLoading ?  <div className='w-[5%] h-[20px] border-4 border-solid border-t-4 border-t-[#FF6666] animate-spin rounded-full'></div> :<></>
+                searchLoading ?  <div className='w-[7%] h-[19.8px] md:w-[5%] md:h-[20px] border-4 border-solid border-t-4 border-t-[#FF6666] animate-spin rounded-full'></div> :<></>
               }
             </div>
             }

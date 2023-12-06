@@ -55,25 +55,6 @@ const SignUp = () => {
     }
   }
 
-  const handleGoogleSignUp = ()=>{
-      axios.post(`${imgBaseUrl}/auth/signup`)
-      .then((res)=>{
-        if(res.status === 200){
-          const token = res.data?.authToken?.token;
-          setCookie('foxialAuthToken', token, 1);
-          toast.success("Logged in Successfully")
-          Navigate("/")
-        }
-      }
-      )
-      .catch((err)=>{
-        toast.error(err?.response?.data?.message)
-        console.log("Error::",err)
-      })
-    
-  }
-
-
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -118,17 +99,24 @@ const SignUp = () => {
         <div className='w-[120%] xl:w-[85%] p-3'>
             <form className=' rounded-lg p-1 xl:p-5 pl-5 pr-5 h-full w-full flex flex-col justify-center items-center gap-2' onSubmit={handleSubmit}>
             <div className='w-[80%] p-2 flex flex-1 flex-col justify-center gap-1 '>
-                <p className='font-semibold pl-2'>Username:</p>
-                <input className='w-full border-b-2 outline-none p-2 rounded-md' required name="username" type='username' placeholder='Enter Username' value={formData.username} onChange={handleInputChange}></input>
+                {/* <p className='font-semibold pl-2'>Username:</p> */}
+                <input className='w-full border outline-none p-2 rounded-md text-[14px] md:text-[16px]' required name="username" type='username' placeholder='Enter Username' value={formData.username} onChange={handleInputChange}></input>
               </div>
               <div className='w-[80%] p-2 flex flex-1 flex-col justify-center gap-1 '>
-                <p className='font-semibold pl-2'>Email:</p>
-                <input className='w-full border-b-2 outline-none p-2 rounded-md' required name="email" type='Email' placeholder='Enter Email' value={formData.email} onChange={handleInputChange}></input>
+                {/* <p className='font-semibold pl-2'>Email:</p> */}
+                <input className='w-full border outline-none p-2 rounded-md text-[14px] md:text-[16px]' required name="email" type='Email' placeholder='Enter Email' value={formData.email} onChange={handleInputChange}></input>
               </div>
               <div className='w-[80%] p-2 flex flex-1 flex-col justify-center items-start gap-1 '>
-                <p className='font-semibold pl-2'>Password:</p>
-                <div className='flex flex-1 bg-white rounded-md w-[100%]  border-b-2 '> 
-                  <input value={formData.password} onChange={handleInputChange} className={`w-full outline-none p-2 rounded-md `} type={viewPassword ? 'text' : 'password'} placeholder='Enter Password'></input>
+                {/* <p className='font-semibold pl-2'>Password:</p> */}
+                <div className='flex flex-1 bg-white rounded-md w-[100%]  border '> 
+                <input
+                    value={formData.password}
+                    name='password'
+                    onChange={handleInputChange}
+                    className={`w-full outline-none p-2 rounded-md text-[14px] md:text-[16px]`}
+                    type={viewPassword ? 'text' : 'password'}
+                    placeholder='Enter Password'
+                  />
                   {
                     viewPassword ? 
                     <label onClick={()=> setViewPassword(!viewPassword)} className='p-2 font-bold cursor-pointer'><FontAwesomeIcon className='font-bold' icon={faEyeSlash} /></label>
@@ -139,13 +127,13 @@ const SignUp = () => {
          
               </div>
               <div className='w-[80%] p-2 flex flex-1 flex-col justify-center items-start gap-1 '>
-                <p className='font-semibold pl-2'>Confirm Password:</p>
-                <input className={`w-full border-b-2 p-2 rounded-md outline-none ${pswMatch && formData.confirmPassword?.length > 0 ? "border-green-500" :"border-gray-200"}`} type='Password' name="confirmPassword" required placeholder='Confirm Password' value={formData.confirmPassword} onChange={handleInputChange}></input>
+                {/* <p className='font-semibold pl-2'>Confirm Password:</p> */}
+                <input className={`w-full border p-2 rounded-md outline-none text-[14px] md:text-[16px] ${pswMatch && formData.confirmPassword?.length > 0 ? "border-green-500" :"border-gray-200"}`} type='Password' name="confirmPassword" required placeholder='Confirm Password' value={formData.confirmPassword} onChange={handleInputChange}></input>
                 {pswMatch ? <></> : (<small className='px-2  text-red-500'><label className='font-bold cursor-pointer'><FontAwesomeIcon icon={faTimes} /></label> Passwords do not match</small>)}
               </div>
-              <button className='bg-black p-2 rounded-md w-[70%] text-white' onClick={handleSubmit} type='Submit'>Submit</button>
+              <button className='bg-black p-2 rounded-md w-[70%] text-white text-[14px] md:text-[16px]' onClick={handleSubmit} type='Submit'>Submit</button>
               <div className='w-[150%] text-center'>
-                <p>Already have an Account? <Link to={"/auth/login"}><button className='mt-3 p-1 rounded-lg bg-[#FF6666] w-[20%]'>Log in</button></Link></p>
+                <p className='text-[14px] md:text-[16px]'>Already have an Account? <Link to={"/auth/login"}><button className='mt-3 p-1 rounded-lg bg-[#FF6666] w-[20%] text-[14px] md:text-[16px]'>Log in</button></Link></p>
               </div>
             </form>
         </div>

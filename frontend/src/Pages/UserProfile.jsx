@@ -160,21 +160,21 @@ function UserProfile() {
           <LeftSideBar  />
         </section>
         <section className='w-full mt-24 md:mt-[80px] flex flex-col md:w-[110%] md:ml-[135px] lg:ml-0 lg:w-[56%] items-center'>
-          <div className='w-full lg:w-[85%]  p-2 flex justify-evenly  items-center'>
+          <div className='w-full lg:w-[85%] flex justify-evenly  items-center'>
             <div className='flex justify-end items-center'>
-              <img className='h-[100px] w-[100px] md:h-[150px] md:w-[150px] rounded-full object-cover' src={`${imgBaseUrl}${user?.avatar}`} />
+              <img className='h-[80px] w-[80px] md:h-[150px] md:w-[150px] rounded-full object-cover' src={`${imgBaseUrl}${user?.avatar}`} />
             </div>
             <div className='flex flex-col p-1 items-center justify-center'>
               <div className='flex flex-1 p-2 items-center'>
-                <p className='text-[20px] font-semibold'>{user.username}</p>
+                <p className='lg:text-[20px] font-semibold text-[16px]'>{user.username}</p>
                 <div className='ml-4'>
                 {currUser._id === userId ? (
                   <button
                     onClick={() => navigate('/user/editprofile')}
-                    className='p-2 rounded-lg bg-[#FF6666] text-white hover:opacity-75 text-[14px]'
+                    className='p-1 lg:p-2 rounded-lg bg-[#FF6666] text-white hover:opacity-75 text-[14px] lg:text-[16px]'
                   >
                     <FontAwesomeIcon className='text-white pr-1' icon={faEdit} />
-                    Edit Profile
+                    Edit
                   </button>
                 ) : (
                   <div className='flex flex-1 items-center gap-2'>
@@ -204,9 +204,9 @@ function UserProfile() {
               </div>
               <p className='break-words flex flex-wrap text-[14px]'>{user?.bio}</p>
               <div className='flex justify-center items-center gap-4 mt-3'>
-                <p className='font-semibold'>Friends &nbsp;{user.friendships?.length}</p>
+                <p className='font-semibold text-[14px] lg:text-[16px]'>Friends &nbsp;{user.friendships?.length}</p>
                 <p>|</p>
-                <p className='font-semibold'>Posts &nbsp;{userPosts?.length}</p>
+                <p className='font-semibold text-[14px] lg:text-[16px]'>Posts &nbsp;{userPosts?.length}</p>
               </div>
             </div>
           </div>
@@ -245,13 +245,13 @@ function UserProfile() {
             </div>
              {/* Mobile and Tablet */}
             <div className='w-full block lg:hidden'>
-            <div className='w-full mt-16 ml-[20px] lg:ml-[20px] flex justify-start flex-wrap cursor-pointer'>
+            <div className='w-full mt-16 ml-[3px] lg:ml-[20px] flex justify-start flex-wrap cursor-pointer'>
               {
                 userPosts && (
                   userPosts.map(post=>(
                     post.image ? 
-                    <div key={post._id} onClick={()=>handleShowPopUp(post)} className='h-[125px] w-[125px] md:w-[32%] md:h-[240px] m-[2px] rounded-sm border-[1px] border-solid border-gray-300'>
-                      <img className='h-full w-full object-cover rounded-sm' src={`${imgBaseUrl}${post.image}`} />
+                    <div key={post._id} onClick={()=>handleShowPopUp(post)} className='h-[110px] w-[110px] md:w-[32%] md:h-[240px] m-[2px] rounded-sm border-[1px] border-solid border-gray-300'>
+                      <img className=' h-full w-full object-cover rounded-sm' src={`${imgBaseUrl}${post.image}`} />
                     </div> : 
                     <div key={post._id} onClick={()=>handleShowPopUp(post)} className='h-[125px] w-[125px] md:w-[32%] rounded-sm md:h-[240px] m-[3px] flex justify-center items-center border-[1px] border-solid border-gray-300'> 
                       <p className='h-[50%] w-[100%] overflow-hidden'>{post.content}</p>
