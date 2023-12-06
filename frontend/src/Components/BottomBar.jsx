@@ -3,12 +3,13 @@ import { bottomBarLinksHome, iconsDataHome, imgBaseUrl } from '../Constants'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import store from '../Store'
+import { useSelector } from 'react-redux'
 
 const BottomBar = () => {
     const {pathname} = useLocation()
     const bottomBarLinks = bottomBarLinksHome()
     const data = iconsDataHome;
-    const user = store.getState().users
+    const user = useSelector(state=>state.users)
     const navigate = useNavigate()
 
   return (

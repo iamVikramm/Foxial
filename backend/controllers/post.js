@@ -2,7 +2,6 @@ const Post = require("../models/post")
 const User = require("../models/user")
 const Like = require("../models/like")
 const Comment = require("../models/comment")
-const mongoose = require("mongoose")
 
 
 
@@ -11,9 +10,14 @@ const create = async (req, res) => {
       let post = new Post({
           user: req.user.userID,
       });
-
+      console.log(req.body)
       Post.uploadedImage(req, res, async function (err) {
+          if(err){
+            console.log(err)
+          }
+          console.log(req)
           if (req.file) {
+            console.log(req.file)
               const image = Post.imagePath + "/" + req.file.filename;
               post.image = image;
           }

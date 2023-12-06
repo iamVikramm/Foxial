@@ -96,9 +96,9 @@ const EditProfile = () => {
             })
               .then(response => {
                 console.log(response)
-                dispatch(addUser({user:response.data.user}))
                 toast.success("User details updated")
                 navigate(`/user/userprofile/${user._id}`)
+                window.location.reload();
 
               })
               .catch(error => {

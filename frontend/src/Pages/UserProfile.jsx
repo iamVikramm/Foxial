@@ -12,7 +12,6 @@ import { BottomBar, Loading, NonFriends } from '../Components';
 import { useNavigate, useParams } from 'react-router-dom';
 import PopUpPost from '../Components/PopUpPost';
 import { addSingleFriend, addSingleSentReq, addUserPosts } from '../Store/Slices';
-import SinglePost from './SinglePost';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faEdit, faLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';

@@ -22,23 +22,30 @@ const CreatePost = () => {
         const formData = new FormData()
         formData.append('content',inputValue);
         formData.append('image',file)
-    
-        axios({
-          method: 'POST',
-          url: `${baseUrl}/post/addpost`,
-          data:formData,
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${store.getState().authToken.authToken}`,
-          },
-        }).then(res=>{
-          const newPost = {...res.data.addedPost,user}
-          dispatch(addSinglePosts({post:newPost}));
-          setFile(null);
-          setInputValue("");
-          toast.success("Post added successfully")
-        }).catch(err=>console.log(err))
-      }
+        try {
+          if(inputValue || file){
+            axios({
+              method: 'POST',
+              url: `${baseUrl}/post/addpost`,
+              data:formData,
+              headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: `Bearer ${store.getState().authToken.authToken}`,
+              },
+            }).then(res=>{
+              const newPost = {...res.data.addedPost,user}
+              dispatch(addSinglePosts({post:newPost}));
+              setFile(null);
+              setInputValue("");
+              toast.success("Post added successfully")
+            }).catch(err=>console.log(err))
+          }else{
+            toast.error("Atleast one field is required")
+          }
+        } catch (error) {
+          
+        }
+        }
 
 
     if(loading){
