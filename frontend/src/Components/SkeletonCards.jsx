@@ -6,9 +6,9 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const SkeletonCards = ({cards}) => {
   const allCards = Array(cards).fill(0)
   return (
-    <div className='w-full p-1 md:p-2 lg:p-1  md:[100%] lg:w-[80%] mt-20  overflow-hidden mb-14'>
+    <div className='w-full p-1 md:p-2 lg:p-1  md:[100%] lg:w-[80%] mt-20  overflow-hidden mb-15'>
       {
-        allCards.map((i,idx)=>{
+        allCards.map((idx)=>{
           return(
             <div key={idx} className='bg-white m-1 flex flex-col'>
             <div className='p-4 flex justify-start items-center border-b'>
