@@ -1,11 +1,10 @@
 const express = require('express')
-const http = require('http');
+
 const mongoose = require('mongoose')
 require("dotenv").config()
 const dbUrl = `mongodb+srv://saivikramlingampally:${process.env.MONGODB_PASSWORD}@cluster0.hmvmdw4.mongodb.net/?retryWrites=true&w=majority`
 const cors = require('cors')
 const app = express()
-const server = http.createServer(app);
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -35,7 +34,7 @@ app.use('/uploads', express.static(path.join(__dirname+'/uploads')));
 app.use("/",Router)
 const PORT = process.env.PORT;
 //Listening to the port
-const Server = server.listen(PORT,function(){
+const Server = app.listen(PORT,function(){
     console.log("Connected to the server")
 })
 

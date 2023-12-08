@@ -13,49 +13,77 @@ const getPosts = () => {
 
   const fetchPostsData = async () => {
     const authToken = getAuthToken();
-    setLoading({loading:true})
+    setLoading({ loading: true });
+  
     try {
-      const postsResponse = await axios.get(`${baseUrl}/post/getallposts`, {
-        headers: { Authorization: `Bearer ${authToken}` },
+      const response = await fetch(`${baseUrl}/post/getallposts`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       });
-
-      if (postsResponse.status === 200) {
-        dispatch(addPosts({ posts: postsResponse.data.posts }));
+  
+      if (response.ok) {
+        const posts = await response.json();
+        dispatch(addPosts({ posts:posts.posts }));
+      } else {
+        console.error('Error fetching posts:', response.statusText);
       }
     } catch (error) {
       console.error('Error fetching posts:', error);
-    }finally{
-      // setLoading({loading:false})
+    } finally {
+      setLoading({ loading: false });
     }
   };
+  
 
   const fetchUserPostsData = async (userId) => {
     const authToken = getAuthToken();
+  
     try {
-      const postsResponse = await axios.get(`${baseUrl}/post/getuserposts/${userId}`, {
-        headers: { Authorization: `Bearer ${authToken}` },
+      const response = await fetch(`${baseUrl}/post/getuserposts/${userId}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       });
-      return postsResponse
+  
+      if (response.ok) {
+        return await response.json();
+      } else {
+        console.error('Error fetching posts:', response.statusText);
+        return null;
+      }
     } catch (error) {
       console.error('Error fetching posts:', error);
-      return null
+      return null;
     }
   };
-
-  const fetchSavedPosts = async()=>{
+  
+  const fetchSavedPosts = async () => {
     const authToken = getAuthToken();
+  
     try {
-      await axios.get(`${baseUrl}/post/getusersavedposts`, {
-        headers: { Authorization: `Bearer ${authToken}` },
-      })
-      .then(res=>{
-        dispatch(addSavedPosts({posts:res.data.savedPosts}))
-      })
+      const response = await fetch(`${baseUrl}/post/getusersavedposts`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(addSavedPosts({ posts: data.savedPosts }));
+      } else {
+        console.error('Error fetching saved posts:', response.statusText);
+        return null;
+      }
     } catch (error) {
-      console.error('Error fetching posts:', error);
-      return null
+      console.error('Error fetching saved posts:', error);
+      return null;
     }
-  }
+  };
+  
 
   return { fetchPostsData,fetchUserPostsData, fetchSavedPosts };
 }

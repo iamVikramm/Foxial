@@ -6,7 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const SkeletonCards = ({cards}) => {
   const allCards = Array(cards).fill(0)
   return (
-    <div className='w-full'>
+    <div className='w-[60%]'>
       {
         allCards.map((i,idx)=>{
           return(

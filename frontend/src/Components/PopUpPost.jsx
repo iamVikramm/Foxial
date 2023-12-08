@@ -148,7 +148,7 @@ const PopUpPost = (props) => {
                 <div className='w-[40%] p-1 h-full flex flex-col divide-y pl-2 divide-gray-700 '>
                     <div className=' h-[7%] flex justify-center p-1'>
                       <div className='w-[10%] flex justify-center items-center'>
-                        <img className='h-10 w-10 rounded-full' src={`${imgBaseUrl}${post.user?.avatar}`} />
+                        <img className='h-10 w-10 rounded-full object-cover' src={`${imgBaseUrl}${post.user?.avatar}`} />
                       </div>
                       <div className='flex flex-col items-start justify-center w-[85%] overflow-hidden text-[14px]'>
                         <p className='pl-2 font-bold'>{post.user?.username}</p>
