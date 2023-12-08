@@ -136,6 +136,6 @@ export const bottomBarLinksHome = () => {
   ];
 
 
-  export const imgBaseUrl = "http://localhost:8080"
+  export const imgBaseUrl = "http://13.233.54.241:8080"
 
-  export const baseUrl = "http://localhost:8080/foxial/api"
+  export const baseUrl = "http://13.233.54.241:8080/foxial/api"
