@@ -19,6 +19,7 @@ const getUser = () => {
       });
 
       if (userResponse.status === 200) {
+        console.log(userResponse)
         const userData = {
           _id: userResponse.data.user._id,
           username: userResponse.data.user.username,

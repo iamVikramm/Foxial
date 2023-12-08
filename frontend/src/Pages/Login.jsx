@@ -30,7 +30,7 @@ const Login = () => {
       "email":email,
       "password":password
     }
-    axios.post(`${imgBaseUrl}/foxial/auth/user/login`,user)
+    axios.post(`${imgBaseUrl}/auth/user/login`,user)
     .then((res)=>{
       if(res.status === 200){
         const token = res.data?.authToken?.token;
